@@ -3,7 +3,9 @@ import client from "./client";
 export const getPosts = () => {
   return client.get("/posts");
 };
-
+export const getDetail = (id) => {
+  return client.get(`/posts/${id}`);
+};
 export const createPost = (data) => {
   return client.post("/posts", data);
 };

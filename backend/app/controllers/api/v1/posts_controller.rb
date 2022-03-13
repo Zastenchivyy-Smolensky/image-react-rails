@@ -4,7 +4,10 @@ class Api::V1::PostsController < ApplicationController
     def index
       render json: { posts: Post.all.order("created_at DESC") }
     end
-  
+    def show
+      @post = Post.find(params[:id])
+      render json: @post
+    end
     def create
       post = Post.new(post_params)  
       post.save

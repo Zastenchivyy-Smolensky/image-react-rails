@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { deletePost } from "../lib/api/posts";
 import Card from "@material-ui/core/Card";
+import { Link } from "react-router-dom";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -35,13 +36,15 @@ function PostItem({ post, handleGetPosts }) {
         {post.image?.url ? (
           <CardMedia component="img" src={post.image.url} alt="post image" />
         ) : null}
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="span">
-            {post.content.split("\n").map((content, index) => {
-              return <p key={index}>{content}</p>;
-            })}
-          </Typography>
-        </CardContent>
+        <Link to={`/post/${post.id}`}>
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="span">
+              {post.content.split("\n").map((content, index) => {
+                return <p key={index}>{content}</p>;
+              })}
+            </Typography>
+          </CardContent>
+        </Link>
         <CardActions disableSpacing>
           <IconButton onClick={() => (like ? setLike(false) : setLike(true))}>
             {like ? <FavoriteIcon /> : <FavoriteBorderIcon />}
