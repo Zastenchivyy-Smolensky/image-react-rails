@@ -28,7 +28,9 @@ function PostItem({ post, handleGetPosts }) {
           avatar={<Avatar>U</Avatar>}
           action={
             <IconButton>
-              <MoreVertIcon />
+              <Link to={`/edit/${post.id}`}>
+                <MoreVertIcon />
+              </Link>
             </IconButton>
           }
           title="User Name"

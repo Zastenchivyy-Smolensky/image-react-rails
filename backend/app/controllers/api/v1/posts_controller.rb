@@ -12,6 +12,15 @@ class Api::V1::PostsController < ApplicationController
       post = Post.new(post_params)  
       post.save
     end
+
+    def update
+      @post = Product.find(params[:id])
+      if @post.update(post_params)
+          render json: @post
+      else
+          render json: @post.errors
+      end
+    end
   
     def destroy
       post = Post.find(params[:id])

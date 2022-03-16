@@ -4,6 +4,8 @@ import PostForm from "./PostForm";
 import PostItem from "./PostItem";
 import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles(() => ({
   container: {
     marginTop: "3rem",
@@ -24,7 +26,7 @@ function PostList() {
       <Container maxWidth="lg" className={classes.container}>
         <Grid container direction="row" justifyContent="center">
           <Grid item>
-            <PostForm handleGetPosts={handleGetPosts} />
+            <Link to={`/new`}>新規投稿</Link>
             {posts?.map((post) => {
               return (
                 <PostItem

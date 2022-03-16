@@ -9,6 +9,9 @@ export const getDetail = (id) => {
 export const createPost = (data) => {
   return client.post("/posts", data);
 };
+export const EditPost = (data, id) => {
+  return client.patch(`/posts/${id}`, data);
+};
 export const deletePost = (id) => {
   return client.delete(`/posts/${id}`);
 };
